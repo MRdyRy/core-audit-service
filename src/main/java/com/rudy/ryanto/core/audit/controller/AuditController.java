@@ -1,6 +1,6 @@
 package com.rudy.ryanto.core.audit.controller;
 
-import com.rudy.ryanto.core.audit.domain.AuditData;
+import com.rudy.ryanto.core.audit.entity.AuditPojo;
 import com.rudy.ryanto.core.audit.domain.AuditReq;
 import com.rudy.ryanto.core.audit.services.AuditService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ public class AuditController {
 
     @ResponseBody
     @GetMapping("/filterByUserIdAndDate")
-    public List<AuditData> doSearchWithFilterUserIdAndDate(@RequestBody AuditReq auditReq, HttpServletRequest httpServletRequest) {
+    public List<AuditPojo> doSearchWithFilterUserIdAndDate(@RequestBody AuditReq auditReq, HttpServletRequest httpServletRequest) {
         log.info("doSearchWithFilterUserIdAndDate : {}", auditReq);
         String browser = httpServletRequest.getHeader("User-Agent");
         return auditService.searchAudit(auditReq, browser);

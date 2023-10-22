@@ -1,11 +1,10 @@
 package com.rudy.ryanto.core.audit.listener;
 
-import com.rudy.ryanto.core.audit.domain.AuditData;
-import org.springframework.kafka.annotation.KafkaListener;
+import com.rudy.ryanto.core.audit.entity.AuditPojo;
 
 public interface AudittrailListener {
 
     <T> void saveAudit(T data);
-    <T> AuditData saveAuditWithCallBack(T data);
+    <T> AuditPojo saveAuditWithCallBack(T data);
 
 }
